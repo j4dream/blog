@@ -3,7 +3,7 @@
 
 try-catch 和 try-finally 代码块是不会被v8引擎优化的(如果函数包含try代码块，整个函数都不会被优化)。
 
-```
+```javascript
 try {
     willThrowError();
 } catch(exception) {
@@ -13,7 +13,7 @@ try {
 更好得写法就是把try代码块分离出来，独立写在另一个函数里面。
 
 
-```
+```javascript
 function willThrowError() {
     try {
         // [code]
@@ -28,14 +28,14 @@ willThrowError();
 ```
 ## 使用本地变量
 如果你多次使用一段代码，最好创建局部变量  
-1. 快速获得此变量(作用域, 局部作用域的变量,它会更快的检索出来)
+1. 快速获得此变量(作用域, 局部作用域的变量,它会更快的检索出来)  
 2. 缓存(执行一次操作和存储结果让浏览器做更少的工作)
 
 ## 字面量
 
 使用字面量创建对象
 
-```
+```javascript
 var arr = [];
 var arr = new Array(11);
 
@@ -48,7 +48,7 @@ var arr = new Array(11);
 [Test Case](https://jsperf.com/test-dictionary-mode)
 
 
-```
+```javascript
 function forInFunc() {
   var dictionary = {'+': 5};
   for (var key in dictionary);
@@ -58,7 +58,7 @@ When you use an object as if it was a dictionary, it will be turned into a dicti
 
 ### 遍历数组
 
-```
+```javascript
 function arrayFunc() {
   var arr = [1, 2, 3];
   for (var index in arr) {
@@ -70,7 +70,7 @@ function arrayFunc() {
 
 需要遍历对象属性？
 
-```
+```javascript
 var objKeys = Object.keys(obj);
 var propertyName;
 
@@ -93,7 +93,7 @@ For-In statements can prevent the entire function from being optimized in a few 
 
 It cannot be from upper scope or referenced from lower scope.
 
-```
+```javascript
 var key;
 
 function doesNotSeemToBeLocalKey() {
@@ -107,7 +107,7 @@ function doesNotSeemToBeLocalKey() {
 
 ### 重新分配参数
 
-```
+```javascript
 // 不要给参数重新赋值
 function argumentsReassign(foo, bar) {
   if (foo && foo === 5) {
@@ -128,7 +128,7 @@ function argumentsReassign(foo, bar) {
 ```
 ### 泄漏参数
 
-```
+```javascript
 // `arguments'是一个特殊的对象，它的实现是昂贵的。
 function leaksArguments() {
   var args = [].slice.call(arguments);
@@ -150,7 +150,7 @@ function doesNotLeakArguments() {
 ```
 注意，大多数情况下 优化意味更多得代码，可以将上面代码封装一下：
 
-```
+```javascript
 function doesNotLeakArguments() {
   arguments_slice(args, arguments);
   // code that uses `args`
