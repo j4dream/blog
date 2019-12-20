@@ -156,4 +156,4 @@ function doesNotLeakArguments() {
   // code that uses `args`
 }
 ```
-Happy code!
+Happy coding!
