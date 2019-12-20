@@ -54,7 +54,7 @@ function forInFunc() {
   for (var key in dictionary);
 }
 ```
-When you use an object as if it was a dictionary, it will be turned into a dictionary (hash table). Passing such an object to for-in is a no no.[怎么翻译。。。]
+当您将对象当作字典使用时，它将变成字典（哈希表）。 将这样的对象传递给for-in是不可以的。
 
 ### 遍历数组
 
