@@ -103,7 +103,7 @@ function doesNotSeemToBeLocalKey() {
 ```
 
 ### Arguments
-粗略地使用参数的操作可能导致整个函数是不可优化的。它可能导致这些"bailouts"之一， "未优化： 错误的arguments值"：和 "未优化，赋值给arguments对象中得参数"。
+粗略地使用参数的操作可能导致整个函数是不可优化的。它可能导致这些"bailouts"之一， "未优化： 错误的 arguments 值"：和 "未优化，赋值给arguments对象中得参数"。
 
 ### 重新分配参数
 
