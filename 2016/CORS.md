@@ -187,3 +187,19 @@ res.setHeader('Set-Cookie',
 //设置ajax
 xhr.withCredentials = true;
 ```
+
+### 另一种方式 JSONP
+另外还有一种跨域解决方法，jsonp。原理也简单，就好像请求普通 js 文件一样，不受域名限制，后端动态生成一段数据 script，返回前端，缺点该就是不支持 post。
+
+```javascript
+// web 约定好方法名 callback
+function callback(data) {
+    resolve(data);
+}
+
+// 动态请求 js, 并返回数据，
+callback({
+    data: 'jsonp data from server.'
+})
+
+```
